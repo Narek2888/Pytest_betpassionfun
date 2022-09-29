@@ -1,14 +1,5 @@
-from Main.page_objects import HomePage as h
-import pytest
-import allure
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
-import requests
-from selenium.webdriver.chrome.options import Options
-from Main.config import *
+
 
 class BasePage:
 
@@ -17,86 +8,83 @@ class BasePage:
 
     """open main page"""
     def main_page(self):
-        return self.driver.get(h.mainurl)
+        return self.driver.get("https://betpassionfun.draft10.com/")
 
     """open tournament page"""
     def tournament_button(self):
-        return self.driver.find_element(By.XPATH, h.tournamentbutton_xpath)
-   
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/ul/li[1]/a')
+
     """open guide page"""
     def guide_button(self):
-        return self.driver.find_element(By.XPATH, h.guidebutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/ul/li[2]/a')
 
     """open news page"""
     def news_button(self):
-        return self.driver.find_element(By.XPATH, h.newsbutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/ul/li[3]/a')
 
     """open rules page"""
     def rules_button(self):
-        return self.driver.find_element(By.XPATH, h.rulesbutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/ul/li[4]/a')
 
     """click the homepage logo"""
     def home_betpassionfun(self):
-        return self.driver.find_element(By.XPATH, h.homelogo_xpath)
-    
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[1]/div/img')
+
     """open login page"""
     def login_button(self):
-        return self.driver.find_element(By.XPATH, h.loginbutton_xpath)
-    
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/button[1]')
+
     """open register page"""
     def register_button(self):
-        return self.driver.find_element(By.XPATH, h.registerbutton_xpath)        
-    
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/button[2]')        
+
     """click 1000pp suggestion button"""
     def suggestion_1000pp_button(self):
-        return self.driver.find_element(By.XPATH, h.suggest1000pp_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div[1]/div/div/button')
 
-
-    ### social links
+    # social links
     """click facebook icon"""
     def facebook_button(self):
-        return self.driver.find_element(By.XPATH, h.facebookicon_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[1]/div[2]/a[1]')
 
     """click instagram icon"""
     def insta_button(self):
-        return self.driver.find_element(By.XPATH, h.instaicon_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[1]/div[2]/a[2]')
 
     """click telegram icon"""
     def telegram_button(self):
-        return self.driver.find_element(By.XPATH, h.telegramicon_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[1]/div[2]/a[3]')
 
     """click youtube icon"""
     def youtube_button(self):
-        return self.driver.find_element(By.XPATH, h.youtubeicon_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[1]/div[2]/a[4]')
 
-    
-    ### footer legal aspects
+    # footer legal aspects
     """click cookie policy button"""
     def cookie_policy(self):
-        return self.driver.find_element(By.XPATH, h.cookie_policy_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/span[1]/a')
 
     """click privacy policy button"""
     def privacy_policy(self):
-        return self.driver.find_element(By.XPATH, h.privacy_policy_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/span[2]/a')
 
     """click terms and conditions button"""
     def terms_and_conditions(self):
-        return self.driver.find_element(By.XPATH, h.terms_and_conditions_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/span[3]/a')
 
-
-    ### footer menu list
+    # footer menu list
     """open tournament page"""
     def menu_tournament_button(self):
-        return self.driver.find_element(By.XPATH, h.menu_tournamentbutton_xpath)
-   
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/a[1]/span')
+
     """open guide page"""
     def menu_guide_button(self):
-        return self.driver.find_element(By.XPATH, h.menu_guidebutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/a[2]/span')
 
     """open news page"""
     def menu_news_button(self):
-        return self.driver.find_element(By.XPATH, h.menu_newsbutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/a[3]/span')
 
     """open rules page"""
     def menu_rules_button(self):
-        return self.driver.find_element(By.XPATH, h.menu_rulesbutton_xpath)
+        return self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/a[4]/span')

@@ -1,61 +1,70 @@
-import pytest
 import allure
 import time
-from Main.Pages.LoginPage import LoginPage
 from Main.Pages.BasePage import BasePage
-from Main.config import *
-from Main.page_objects import HomePage as hp
+from Main import config
 
-basepage = BasePage(driver)
 
-@allure.severity(allure.severity_level.NORMAL) #### adding the decorator
+basepage = BasePage(config.driver)
+
+
+# adding the decorator
+@allure.severity(allure.severity_level.NORMAL)
 def test_open_mainpage():
 
-    open_main_page = basepage.main_page()
-    assert driver.current_url == hp.mainurl
+    basepage.main_page()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/"
     time.sleep(1)
+
 
 """navigation bar elements"""
+
+
 def test_tournament_button():
 
-    open_tournament_page = basepage.tournament_button().click()
-    assert driver.current_url == hp.tournamentpage_url
+    basepage.tournament_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/tournament"
     time.sleep(1)
+
 
 def test_guide_button():
 
-    open_guide_page = basepage.guide_button().click()
-    assert driver.current_url == hp.guidepage_url
+    basepage.guide_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/guide"
     time.sleep(1)
+
 
 def test_news_button():
 
-    open_news_page = basepage.news_button().click()
-    assert driver.current_url == hp.newspage_url
+    basepage.news_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/news"
     time.sleep(1)
+
 
 def test_rules_button():
 
-    open_rules_page = basepage.rules_button().click()
-    assert driver.current_url == hp.rulespage_url
+    basepage.rules_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/rules"
     time.sleep(1)
+
 
 def test_home_button():
 
-    open_home_page = basepage.home_betpassionfun().click()
-    assert driver.current_url == hp.homepage_url
+    basepage.home_betpassionfun().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/"
     time.sleep(1)
+
 
 def test_login_button():
 
-    open_login_page = basepage.login_button().click()
-    assert driver.current_url == hp.loginpage_url
+    basepage.login_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/login"
     time.sleep(1)
+
 
 def test_register_button():
 
-    open_register_page = basepage.register_button().click()
-    assert driver.current_url == hp.registerpage_url
+    basepage.register_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/register"
     time.sleep(1)
 
 
@@ -63,105 +72,121 @@ def test_suggest_1000pp_button():
     
     basepage.main_page()
     time.sleep(1)
-    open_suggest_1000pp_page = basepage.suggestion_1000pp_button().click()
-    assert driver.current_url == hp.registerpage_url
+    basepage.suggestion_1000pp_button().click()
+    assert config.driver.current_url == 'https://betpassionfun.draft10.com/register'
     time.sleep(1)
-    
+
+
 """social links"""
+
+
 def test_facebook_button():
 
     basepage.main_page()
-    open_facebook_page = basepage.facebook_button().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.facebookpage_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
     time.sleep(1)
+    basepage.facebook_button().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.facebook.com/NoiSiamoPassione"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
+    time.sleep(1)
+
 
 def test_insta_button():
 
-    open_insta_page = basepage.insta_button().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.instapage_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.insta_button().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.instagram.com/betpassion.it/"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
     time.sleep(1)
+
 
 def test_telegram_button():
 
-    open_telegram_page = basepage.telegram_button().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.telegrampage_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.telegram_button().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://t.me/betpassionofficial"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
     time.sleep(1)
 
 
 def test_youtube_button():
 
-    open_youtube_page = basepage.youtube_button().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.youtubepage_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.youtube_button().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.youtube.com/results?search_query=betpassion.info"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
 
 
-### footer
+# footer
 """legal aspects"""
+
+
 def test_cookie_policy():
 
-    open_cookie_policy = basepage.cookie_policy().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.cookie_policy_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.cookie_policy().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.iubenda.com/privacy-policy/30380830/cookie-policy"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
     time.sleep(1)
+
 
 def test_privacy_policy():
 
-    open_privacy_policy = basepage.privacy_policy().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.privacy_policy_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.privacy_policy().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.iubenda.com/privacy-policy/30380830"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
     time.sleep(1)
+
 
 def test_terms_and_conditions():
 
-    open_terms_and_conditions = basepage.terms_and_conditions().click()
-    driver.switch_to.window(driver.window_handles[1])
-    assert driver.current_url == hp.terms_and_conditions_url
-    driver.close()
-    driver.switch_to.window(driver.window_handles[0])
+    basepage.terms_and_conditions().click()
+    config.driver.switch_to.window(config.driver.window_handles[1])
+    assert config.driver.current_url == "https://www.iubenda.com/termini-e-condizioni/30380830"
+    config.driver.close()
+    config.driver.switch_to.window(config.driver.window_handles[0])
     time.sleep(1)
 
 
 """menu elements"""
+
+
 def test_menu_tournament_button():
 
-    open_menu_tournament_page = basepage.menu_tournament_button().click()
-    assert driver.current_url == hp.tournamentpage_url
+    basepage.menu_tournament_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/tournament"
     time.sleep(1)
+
 
 def test_menu_guide_button():
 
     basepage.main_page()
-    open_menu_guide_page = basepage.menu_guide_button().click()
-    assert driver.current_url == hp.guidepage_url
+    basepage.menu_guide_button().click()
+    time.sleep(2)
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/guide"
     time.sleep(1)
+
 
 def test_menu_news_button():
 
     basepage.main_page()
     time.sleep(1)
-    open_menu_news_page = basepage.menu_news_button().click()
-    assert driver.current_url == hp.newspage_url
+    basepage.menu_news_button().click()
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/news"
     time.sleep(1)
+
 
 def test_menu_rules_button():
 
     basepage.main_page()
-    open_menu_rules_page = basepage.menu_rules_button().click()
-    assert driver.current_url == hp.rulespage_url
-    time.sleep(1)
-    driver.quit()
+    basepage.menu_rules_button().click()
+    time.sleep(2)
+    assert config.driver.current_url == "https://betpassionfun.draft10.com/rules"
+    config.driver.quit()
