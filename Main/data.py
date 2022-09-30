@@ -17,5 +17,4 @@ password2 = "poker123"
 invalid_username = "jeko"
 invalid_password = "phantom"
 
-google_account_mail = "narekgabrielyan20gmail.com"
-google_account_password = "narekgabrielyan20"
+
