@@ -13,7 +13,6 @@ class Login:
     def correct_login(self):
 
         bp.main_page()
-        time.sleep(1)
         bp.login_button().click()
         lp.username().send_keys(data.username2)
         lp.password().send_keys(data.password2)
