@@ -1,10 +1,25 @@
+from email import parser
+from pytest import Parser
+import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import argparse
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+browser = "Chrome"
+
+if browser == "Chrome":
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+elif browser == "Firefox":
+    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+elif browser == "Safari":
+    driver = webdriver.Safari()
+else:
+    print("choose correct browser name")
 
 
 def element_to_be_clickable(locator, value):

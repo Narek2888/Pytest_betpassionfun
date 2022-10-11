@@ -9,6 +9,7 @@ class BasePage:
 
     """open main page"""
     def main_page(self):
+        self.driver.implicitly_wait(5)
         return self.driver.get("https://betpassionfun.draft10.com/")
 
     """open tournament page"""
