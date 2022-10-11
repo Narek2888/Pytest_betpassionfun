@@ -1,0 +1,5 @@
+venv
+data.py
+__pycache__
+pytest-app.yml
+.pytest_cache
