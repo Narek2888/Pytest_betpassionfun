@@ -1,6 +1,8 @@
+from lib2to3.pgen2 import driver
 import allure
 from Main.Pages.BasePage import BasePage
 from Main import config
+import pytest
 
 
 basepage = BasePage(config.driver)
@@ -8,6 +10,7 @@ basepage = BasePage(config.driver)
 
 # adding the decorator
 @allure.severity(allure.severity_level.NORMAL)
+# @pytest.mark.usefixtures("driver_init")
 def test_open_mainpage():
 
     basepage.main_page()
@@ -15,7 +18,6 @@ def test_open_mainpage():
 
 
 """navigation bar elements"""
-
 
 def test_tournament_button():
 
@@ -179,4 +181,3 @@ def test_menu_rules_button():
     basepage.main_page()
     basepage.menu_rules_button().click()
     assert config.url_to_be("https://betpassionfun.draft10.com/rules")
-    config.driver.quit()
