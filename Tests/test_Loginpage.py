@@ -32,3 +32,4 @@ def test_correct_login():
 
     assert data['result']['wallets'][5]['balance'] == int(config.presence_of_element_located(By.CLASS_NAME, 'fpp__amount').text)
     
+    # Login().google_account_login()

@@ -11,10 +11,12 @@ for i in range(0, 5):
 password = random.choice(password_list)
 repeat_password = password
 
-username2 = "arthur2"
-password2 = "poker123"
+username2 = "ar22"
+password2 = "po123"
 
 invalid_username = "jeko"
 invalid_password = "phantom"
 
+google_account_mail = "narekgabrielyan20@gmail.com"
+google_account_password = "narekgabrielyan20"
 

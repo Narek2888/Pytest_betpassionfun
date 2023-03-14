@@ -23,7 +23,7 @@ class LoginPage:
         return config.element_to_be_clickable(By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div/div/div[1]/div/div/form/div[4]/button')
 
     def google_account(self):
-        return config.element_to_be_clickable(By.CLASS_NAME, 'nsm7Bb-HzV7m-LgbsSe-MJoBVe')
+        return config.element_to_be_clickable(By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div/div/div[1]/div/div/div[2]/div/div')
 
     def free_registration_button(self):
         return config.element_to_be_clickable(By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div/div/div[2]/div/div[3]/button')
