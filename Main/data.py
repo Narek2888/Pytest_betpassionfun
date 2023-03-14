@@ -16,7 +16,3 @@ password2 = "po123"
 
 invalid_username = "jeko"
 invalid_password = "phantom"
-
-google_account_mail = "narekgabrielyan20@gmail.com"
-google_account_password = "narekgabrielyan20"
-
